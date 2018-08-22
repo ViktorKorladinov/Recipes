@@ -1,0 +1,19 @@
+.frontStyle{
+    background: rgb(250,207,37);
+    background: -moz-linear-gradient(-45deg, rgb(250,207,37) 0%, rgb(249,46,39) 99%);
+    background: -webkit-linear-gradient(-45deg, rgb(250,207,37) 0%,rgb(249,46,39) 99%);
+    background: linear-gradient(135deg, rgb(250,207,37) 0%,rgb(249,46,39) 99%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#facf25', endColorstr='#f92e27',GradientType=1 );
+    height: 100vh;
+}
+.heading{
+    font-family: 'Raleway', sans-serif;
+
+}
+.element {
+    font-size: 4vh;
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: perspective(1px) translateY(-50%);
+}
