@@ -1,16 +1,19 @@
-import {FETCH_RECIPE_BY_ID,FETCH_ALL_RECIPES,CREATE_RECIPE} from './types'
+import {CREATE_RECIPE, FETCH_ALL_RECIPES, FETCH_RECIPE_BY_ID} from './types'
 
-export const fetchRecipeById = (id) => dispatch =>{
+// let baseUrl = 'http://192.168.1.3:6996';
+let baseUrl = '';
+export const fetchRecipeById = (id) => dispatch => {
     console.log(id);
-    fetch('http://192.168.1.3:6996/recipe/id/'+id)
-        .then(recipe=>recipe.json()).then(recipe => dispatch({
+
+    fetch(baseUrl + '/recipe/id/' + id)
+        .then(recipe => recipe.json()).then(recipe => dispatch({
         type: FETCH_RECIPE_BY_ID,
         payload: recipe
 
     }))
 };
 export const fetchAllRecipes = () => dispatch => {
-    fetch('http://192.168.1.3:6996/recipe')
+    fetch(baseUrl + '/recipe')
         .then(res => res.json())
         .then(recipes => dispatch({
             type: FETCH_ALL_RECIPES,
@@ -19,7 +22,7 @@ export const fetchAllRecipes = () => dispatch => {
 
 };
 export const createPost = (postData) => dispatch => {
-    fetch('http://192.168.1.3:6996/recipe', {
+    fetch(baseUrl + '/recipe', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

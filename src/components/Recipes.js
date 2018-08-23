@@ -50,7 +50,7 @@ class Recipes extends Component {
 
 Recipes.propTypes = {
     fetchAllRecipes: PropTypes.func.isRequired,
-    recipes: PropTypes.array.isRequired,
+     recipes: PropTypes.array.isRequired,
     newRecipe: PropTypes.object
 };
 
