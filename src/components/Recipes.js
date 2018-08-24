@@ -1,11 +1,11 @@
 import React, {Component} from "react";
-import {Col, ListGroup, ListGroupItem, Row} from 'reactstrap';
-import {Route, Link, withRouter} from "react-router-dom";
-import SingleRecipe from "./SingleRecipe";
+import { ListGroup, ListGroupItem} from 'reactstrap';
+import { Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 import {fetchAllRecipes} from "../actions/postActions";
 import {connect} from "react-redux";
 import '../styles/Recipes.css'
+
 class Recipes extends Component {
 
     componentWillMount() {
@@ -33,15 +33,11 @@ class Recipes extends Component {
 
         return (
 
-            <Row>
-                <Col md={4}>
-                    <ListGroup className={'listGroup'}>
-                        {recipeList}
-                    </ListGroup>
-                </Col>
-                <Col md={8}>
-                    <Route exact path="/recipes/:recipeId" key={this.state.key} component={SingleRecipe}/></Col>
-            </Row>
+            <div className="backer">
+                <ListGroup style={{width: '50%', marginLeft:'auto', marginRight:'auto',}} className={'listGroup'}>
+                    {recipeList}
+                </ListGroup>
+            </div>
 
 
         )
@@ -50,7 +46,7 @@ class Recipes extends Component {
 
 Recipes.propTypes = {
     fetchAllRecipes: PropTypes.func.isRequired,
-     recipes: PropTypes.array.isRequired,
+    recipes: PropTypes.array.isRequired,
     newRecipe: PropTypes.object
 };
 
@@ -59,4 +55,4 @@ const mapStateToProps = state => ({
     newRecipe: state.parts.creation
 });
 
-export default withRouter(connect(mapStateToProps, {fetchAllRecipes})(Recipes));
+export default connect(mapStateToProps, {fetchAllRecipes})(Recipes);

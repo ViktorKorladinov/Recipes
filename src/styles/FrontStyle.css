@@ -1,9 +1,9 @@
 .frontStyle{
     background: rgb(250,207,37);
-    background: -moz-linear-gradient(-45deg, rgb(250,207,37) 0%, rgb(249,46,39) 99%);
-    background: -webkit-linear-gradient(-45deg, rgb(250,207,37) 0%,rgb(249,46,39) 99%);
-    background: linear-gradient(135deg, rgb(250,207,37) 0%,rgb(249,46,39) 99%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#facf25', endColorstr='#f92e27',GradientType=1 );
+    background: -moz-linear-gradient(top, rgb(250,207,37) 0%, rgb(249,46,39) 99%);
+    background: -webkit-linear-gradient(top, rgb(250,207,37) 0%,rgb(249,46,39) 99%);
+    background: linear-gradient(to bottom, rgb(250,207,37) 0%,rgb(249,46,39) 99%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#facf25', endColorstr='#f92e27',GradientType=0 );
     height: 100vh;
 }
 .heading{

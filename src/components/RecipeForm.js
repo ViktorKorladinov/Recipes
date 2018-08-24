@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
-import {Button, Form, FormGroup, Label, Input, FormText, Col, Alert} from 'reactstrap';
+import {Button, Form, FormGroup, Label, Input, Col} from 'reactstrap';
 import '../styles/RecipeForm.css'
+import PropTypes from 'prop-types'
+import {createRecipe} from "../actions/postActions";
+import {connect} from "react-redux";
 
 class RecipeForm extends Component {
     static defaultProps = {};
@@ -8,7 +11,7 @@ class RecipeForm extends Component {
     static propTypes = {};
 
     state = {};
-    active;
+
 
     constructor(props) {
         super(props);
@@ -35,26 +38,18 @@ class RecipeForm extends Component {
         });
     }
 
-    onSubmit(e) {
-        e.preventDefault();
-        const post = {
+    onSubmit() {
+        const recipe = {
                 name: this.state.name,
                 description: this.state.description,
                 country: this.state.country,
                 ingredients: this.state.ingredients
             }
         ;
-        this.props.createPost(post);
+        this.props.createRecipe(recipe);
     }
 
     render() {
-
-        const alerts = this.state.ingredients.forEach(ingredient => (
-            <Alert color="info" isOpen={this.state.visible} toggle={this.onDismiss}>
-                ingredient
-            </Alert>
-            ));
-
         return (
             <div className={'formBender'}>
                 <Form>
@@ -78,7 +73,9 @@ class RecipeForm extends Component {
                         <Label md={2} for="exampleText">Directions</Label>
                         <Col md={10}>
                             <Input type="textarea" name="description" id="descriptionId"
-                                   placeholder="Describe how did you manage to cook dat sh*t"/></Col>
+                                   placeholder="Explain yoself"
+                                   onChange={this.onChange}
+                                   value={this.state.description}/></Col>
                     </FormGroup>
                     <FormGroup row>
                         <Label md={2} for="Ingredients">Ingredients:</Label>
@@ -94,7 +91,7 @@ class RecipeForm extends Component {
                             </Button>
                         </Col>
                     </FormGroup>
-                    <Button type={'submit'}>Submit</Button>
+                    <Button onClick={()=>{this.onSubmit()}}>Submit</Button>
                 </Form>
             </div>
         );
@@ -104,8 +101,12 @@ class RecipeForm extends Component {
         this.setState({
             ingredients: this.state.ingredients.concat(this.state.temp)
         });
-        console.log(this.state)
     }
+
 }
 
-export default RecipeForm;
+RecipeForm.propTypes = {
+    createRecipe: PropTypes.func.isRequired
+};
+
+export default connect(null, {createRecipe})(RecipeForm);

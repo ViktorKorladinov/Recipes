@@ -5,6 +5,7 @@ import Recipes from "./Recipes";
 import Front from "./Front";
 
 import RecipeForm from "./RecipeForm";
+import SingleRecipe from "./SingleRecipe";
 
 class RoutingSwitcher extends Component {
     static defaultProps = {};
@@ -19,8 +20,9 @@ class RoutingSwitcher extends Component {
                 <div>
                     <Switch>
                         <Route exact path="/" component={Front}/>
-                        <Route path="/recipes" component={Recipes}/>
+                        <Route exact path="/recipes" component={Recipes}/>
                         <Route exact path="/create" component={RecipeForm}/>
+                        <Route path="/recipes/:recipeId" key={this.state.key} component={SingleRecipe}/>
                     </Switch>
                 </div>
             </Router>

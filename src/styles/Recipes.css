@@ -6,3 +6,12 @@
     background: aliceblue;
 
 }
+.backer{
+    height: 100vh;
+    width: auto;
+    background: rgb(249,48,39);
+    background: -moz-linear-gradient(top, rgb(249,48,39) 0%, rgb(85,63,251) 99%);
+    background: -webkit-linear-gradient(top, rgb(249,48,39) 0%,rgb(85,63,251) 99%);
+    background: linear-gradient(to bottom, rgb(249,48,39) 0%,rgb(85,63,251) 99%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f93027', endColorstr='#553ffb',GradientType=0 );
+}

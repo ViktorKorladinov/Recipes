@@ -10,11 +10,6 @@ class SingleRecipe extends Component {
         this.props.fetch(this.props.match.params.recipeId);
     }
 
-    componentDidUpdate(nextProps) {
-        if (this.props.match.params.recipeId !== nextProps.match.params.recipeId) this.props.fetch(nextProps.match.params.recipeId);
-    }
-
-
     static defaultProps = {};
 
     static propTypes = {};
