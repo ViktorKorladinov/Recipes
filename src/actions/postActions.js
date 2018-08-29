@@ -1,7 +1,7 @@
 import { FETCH_ALL_RECIPES, FETCH_RECIPE_BY_ID} from './types'
 
-// let baseUrl = 'http://192.168.1.3:6996';
-let baseUrl = '';
+let baseUrl = 'http://192.168.1.3:6996';
+// let baseUrl = '';
 export const fetchRecipeById = (id) => dispatch => {
     fetch(baseUrl + '/recipe/id/' + id)
         .then(recipe => recipe.json()).then(recipe => dispatch({
